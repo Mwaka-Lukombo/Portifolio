@@ -9,7 +9,8 @@ export default {
       colors:{
         "black-main":"#141414",
         "main-color":"#7d1c2a",
-        "main-hover":'#5c0410'
+        "main-hover":'#5c0410',
+        "gray-black":"#1c1c1c"
       },
       spacing:{
         "300px":"300px",
