@@ -1,29 +1,380 @@
-//imagens
+import { CodeIcon, Computer, Megaphone, PaintBucket, PaintRoller, Settings, User } from 'lucide-react';
+
+//fontAwesome
+import { ShieldCheck } from 'lucide-react';
+
+import React from 'react'
 
 export const Home = () => {
   return (
-    <div className='max-w-full md:min-h-[700px] md:h-auto bg-black-main text-white font-bold'>
-       <div className='max-w-[1300px] mx-auto pt-[60px]'>
-         <div className='grid md:grid-cols-2 pt-[100px]'>
-            <div className='order-2 text-center md:text-left md:order-1 md:grid-cols-1'>
-                <div className='md:max-w-[600px]  md:pt-[100px]'>
-                <p className="text-gray-400 leading-10">Ola, seja bem vindo (a)</p>
-                <h2 className="text-5xl font-bold mb-[20px]">Eu sou <span className="text-main-color font-bold">Alphonse Mwaka Lukombo</span></h2>
-                <p className="p-4 md:text-justify font-light font-sans md:text-md md:tracking-wider md:font-semibold text-gray-400 mb-[30px]">Eu crio Aplicações Webs, Sistemas de Gestão, Estrategias de Marketing usando tecnologias de ponta tais como Reactjs, Nodejs, MongoDB, Nextjs.
-                  abaixo você pode se inscrever para receber emails sobre desenvolvimento web!</p>
-                <form method="#" className="md:max-w-full px-5 flex flex-col md:flex-row gap-3 mb-10 md:mb-0">
-                   <input type='text' placeholder='Email' className="md:w-[60%] p-3 outline-none rounded-xl text-black-main tracking-tighter" />
-                   <input type='submit' name='Enviar' className="md:w-[30%] p-3 flex items-center justify-center bg-main-color rounded-xl cursor-pointer hover:bg-main-hover" />
-                </form>
+    <main className='bg-gradient-to-r from-[#1A0608] to-[#2A0C0E] py-[80px]'>
+        <div className='container max-w-[1300px] w-full  mx-auto'>
+            <div className='grid grid-cols-1 relative -top-[140px] md:-top-0 md:grid-cols-5 gap-2'>
+              <div className='col-span-1 md:col-span-3 w-full md:py-[100px]   text-[#F5F5F5] order-2 md:order-1 text-center md:text-left'>
+                <h1 className='text-2xl leading-normal mb-4'>Olá eu sou <b className='text-[#721011]'>Alphonse Mwaka Lukombo</b></h1>
+                <h2 className='text-lg  md:text-5xl leading-normal md:leading-[60px] md:mb-4 font-bold'>Tranformamos ideias em experiências digitais únicas</h2>
+                <p className=' text-base md:text-lg leading-[50px] md:mb-4 font-mono'>A awTech desenvolve sites, sistemas e marcas que conectam tecnologia e proposito.</p>
+
+                <div className='flex justify-center md:justify-start gap-1 '>
+                    <button className='btn bg-gradient-to-r from-[#5A0D10] to-[#721011] text-[#F5F5F5] border-0'>Solicitar Orçamento</button>
+                    <button className='btn bg-gradient-to-r from-[#5A0D10] to-[#721011] hover:bg-[#2A0C0E] text-[#F5F5F5]  border-0'>Ver Portifolio</button>
+                </div>
+              </div>
+
+              <div className='md:py-0 col-span-1  md:col-span-2  order-1 md:order-2 relative'>
+                <div className=''>
+                <div className=' h-[400px]'>
+                    <img src='/img/banner_03.PNG' alt='banner_perfil' className='bg-contain md:bg-center bg-no-repeat w-[250px] h-[250px]  border-2 rounded-full mx-auto  md:mx-0 border-blue-400 md:border-0 md:w-auto md:h-auto md:absolute relative top-[120px] md:-top-[120px]' />
+                </div>
+              </div>
+              </div>
+
+            </div>
+            
+            <div className='w-[95%] md:w-full mx-auto  bg-gradient-to-r from-[#0B0203] to-[#1A0608] text-[#F9F9F9] rounded-xl p-10'>
+                <h2 className='text-3xl leading-normal mb-3 font-bold'>Serviços</h2>
+                <p className='text-[#E6E6E6] mb-3 font-mono'>Oferecemos uma gama completa de seicos digitais.</p>
+
+                <div className='grid grid-cols-1 md:grid-cols-2 grid-flow-row grid-rows-2 gap-3'>
+                   <div className='col-span-1 bg-gradient-to-b from-[#2A0C0E] to-[#140405] p-6 rounded-2xl shadow-lg hover:scale-105 transition cursor-pointer min-h-[150px] my-3'>
+                     <div className='flex gap-2 items-center p-3'>
+                        <div className='w-[20%] flex items-center justify-center'>
+                            <Computer />
+                        </div>
+
+                        <div className='w-[80%]'>
+                            <h3 className='text-2xl font-bold leading-normal'>Desenvolvimento Web</h3>
+                            <p className='text-base text-[#E6E6E6]'>Chasso de sices sitemas e plataformas.</p>
+                        </div>
+                     </div>
+                   </div> 
+
+                   <div className='col-span-1 bg-gradient-to-b from-[#2A0C0E] to-[#140405] p-6 rounded-2xl shadow-lg hover:scale-105 transition cursor-pointer min-h-[150px] my-3'>
+                     <div className='flex gap-2 items-center p-3'>
+                        <div className='w-[20%] flex items-center justify-center'>
+                            <PaintRoller />
+                        </div>
+
+                        <div className='w-[80%]'>
+                            <h3 className='text-2xl font-bold leading-normal'>Design e Identidade Visual</h3>
+                            <p className='text-base text-[#E6E6E6]'>Logotipos. UI/UX e breanding</p>
+                        </div>
+                     </div>
+                   </div> 
+
+                   <div className='col-span-1 bg-gradient-to-b from-[#2A0C0E] to-[#140405] p-6 rounded-2xl shadow-lg hover:scale-105 transition cursor-pointer min-h-[150px] my-3'>
+                     <div className='flex gap-2 items-center p-3'>
+                        <div className='w-[20%] flex items-center justify-center'>
+                            <Megaphone />
+                        </div>
+
+                        <div className='w-[80%]'>
+                            <h3 className='text-2xl font-bold leading-normal'>Marketing Digital</h3>
+                            <p className='text-base text-[#E6E6E6]'>SEO, Ads e gerenciamento de mídia</p>
+                        </div>
+                     </div>
+                   </div> 
+
+                   <div className='col-span-1 bg-gradient-to-b from-[#2A0C0E] to-[#140405] p-6 rounded-2xl shadow-lg hover:scale-105 transition cursor-pointer min-h-[150px] my-3'>
+                     <div className='flex gap-2 items-center p-3'>
+                        <div className='w-[20%] flex items-center justify-center'>
+                            <Settings className='' />
+                        </div>
+
+                        <div className='w-[80%]'>
+                            <h3 className='text-2xl font-bold leading-normal'>Desenvolvimento Web</h3>
+                            <p className='text-base text-[#E6E6E6]'>Suporte, atualizações e segurança</p>
+                        </div>
+                     </div>
+                   </div> 
+                </div>
+
+                <div>
+                    <h2 className='text-3xl leading-normal mb-3 font-bold'>Porquê escolher a awTech?</h2>
+                    
+                    <div className='grid md:grid-cols-3 gap-2'>
+                        <div className='flex items-center justify-center col-span-1 bg-gradient-to-b from-[#2A0C0E] to-[#140405] p-6 rounded-2xl shadow-lg hover:scale-105 transition cursor-pointer min-h-[150px] my-3'>
+                            <div className='flex items-center justify-center flex-col'>
+                                <div className='flex items-center justify-center text-2xl mb-2 w-[100px] h-[60px] '>
+                                    <User />
+                                </div>
+                                <h3 className='text-lg tracking-wide text-[#E6E6E6] w-[200px] text-center'>Atendimento personalizado</h3>
+                            </div>
+                        </div>
+
+                         <div className='flex items-center justify-center col-span-1 bg-gradient-to-b from-[#2A0C0E] to-[#140405] p-6 rounded-2xl shadow-lg hover:scale-105 transition cursor-pointer min-h-[150px] my-3'>
+                            <div className='flex items-center justify-center flex-col'>
+                                <div className='flex items-center justify-center text-2xl mb-2 w-[100px] h-[60px] '>
+                                    <ShieldCheck />
+                                </div>
+                                <h3 className='text-lg tracking-wide text-[#E6E6E6] w-[200px] text-center'>Projectos rápidos e seguros</h3>
+                            </div>
+                        </div>
+
+                         <div className='flex items-center justify-center col-span-1 bg-gradient-to-b from-[#2A0C0E] to-[#140405] p-6 rounded-2xl shadow-lg hover:scale-105 transition cursor-pointer min-h-[150px] my-3'>
+                            <div className='flex items-center justify-center flex-col'>
+                                <div className='flex items-center justify-center text-2xl mb-2 w-[100px] h-[60px] '>
+                                    <CodeIcon />
+                                </div>
+                                <h3 className='text-lg tracking-wide text-[#E6E6E6] w-[200px] text-center'>Código limpo e escalavél</h3>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div className='order-1 mx-auto border-8 border-main-color rounded-full md:border-none md:order-2 md:grid-cols-1 md:pt-[100px]'>
-                <img src='/img/banner_02.jpg' alt='banner_02' className="md:hidden w-[250px] h-[250px] rounded-full md:rounded-none o md:w-[500px] md:h-[500px]" />
-                <img src='/img/banner_03.PNG' alt='banner_02' className="hidden md:block w-[300px] h-[300px] rounded-full md:rounded-none o md:w-[500px] md:h-[500px]" />
+            <div className='hidden md:block my-5 mb-[100px] text-[#F5F5F5] text-center md:text-left'>
+                 <h2 className='text-3xl leading-normal mb-3 font-bold'>Sua presença digital começa aqui</h2>
+                 <p className='font-mono'>Fale conosco e transforme a sua ideia em realidade.</p>
+            </div> 
+
+             <div className='my-12 text-[#F5F5F5] text-center md:text-left'>
+                 <h2 className='text-2xl md:text-5xl leading-normal mb-3 font-bold mx-auto md:w-[700px] w-[400px] text-center tracking-tight'>Tecnologias que impulsionam nossos projectos</h2>
+                 <p className='font-mono text-center'>Dominamos as principais linguagens e frameworks modernos do mercado.</p>
+
+                 <div className='w-full grid grid-cols-2 md:grid-cols-4 my-7 gap-4 px-5 md:px-0'>
+                    <div className='col-span-1 bg-gradient-to-r from-[#0B0203] to-[#1A0608] text-[#F9F9F9] min-h-[200px] rounded-xl'>
+                        <div className='flex flex-col items-center justify-center p-[20px]'>
+                            <div>
+                                <img src='./icons/html-5.png' className='w-[50px]' />
+                            </div>
+
+
+                            <div className='flex items-center flex-col my-4'>
+                                <h3 className='text-base font-mono mb-2'>HMTL</h3>
+                                <progress className="progress progress-primary w-56 mb-3" value="90" max="100"></progress>
+                                <h3 className='font-bold'>90%</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className='col-span-1 bg-gradient-to-r from-[#0B0203] to-[#1A0608] text-[#F9F9F9] min-h-[200px] rounded-xl'>
+                        <div className='flex flex-col items-center justify-center p-[20px]'>
+                            <div>
+                                <img src='./icons/css.png' className='w-[50px]' />
+                            </div>
+
+
+                            <div className='flex items-center flex-col my-4'>
+                                <h3 className='text-base font-mono mb-2'>CSS</h3>
+                                <progress className="progress progress-primary w-56 mb-3" value="85" max="100"></progress>
+                                <h3 className='font-bold'>85%</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div className='col-span-1 bg-gradient-to-r from-[#0B0203] to-[#1A0608] text-[#F9F9F9] min-h-[200px] rounded-xl'>
+                        <div className='flex flex-col items-center justify-center p-[20px]'>
+                            <div>
+                                <img src='./icons/java-script.png' className='w-[50px]' />
+                            </div>
+
+
+                            <div className='flex items-center flex-col my-4'>
+                                <h3 className='text-base font-mono mb-2'>JavaScript</h3>
+                                <progress className="progress progress-primary w-56 mb-3" value="85" max="100"></progress>
+                                <h3 className='font-bold'>80%</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div className='col-span-1 bg-gradient-to-r from-[#0B0203] to-[#1A0608] text-[#F9F9F9] min-h-[200px] rounded-xl'>
+                        <div className='flex flex-col items-center justify-center p-[20px]'>
+                            <div>
+                                <img src='./icons/react.png' className='w-[50px]' />
+                            </div>
+
+
+                            <div className='flex items-center flex-col my-4'>
+                                <h3 className='text-base font-mono mb-2'>REACT JS</h3>
+                                <progress className="progress progress-primary w-56 mb-3" value="85" max="100"></progress>
+                                <h3 className='font-bold'>92%</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div className='col-span-1 bg-gradient-to-r from-[#0B0203] to-[#1A0608] text-[#F9F9F9] min-h-[200px] rounded-xl'>
+                        <div className='flex flex-col items-center justify-center p-[20px]'>
+                            <div>
+                                <img src='./icons/node.png' className='w-[50px]' />
+                            </div>
+
+
+                            <div className='flex items-center flex-col my-4'>
+                                <h3 className='text-base font-mono mb-2'>NODE JS</h3>
+                                <progress className="progress progress-primary w-56 mb-3" value="87" max="100"></progress>
+                                <h3 className='font-bold'>87%</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div className='col-span-1 bg-gradient-to-r from-[#0B0203] to-[#1A0608] text-[#F9F9F9] min-h-[200px] rounded-xl'>
+                        <div className='flex flex-col items-center justify-center p-[20px]'>
+                            <div>
+                                <img src='./icons/mysql.png' className='w-[50px]' />
+                            </div>
+
+
+                            <div className='flex items-center flex-col my-4'>
+                                <h3 className='text-base font-mono mb-2'>MySql</h3>
+                                <progress className="progress progress-primary w-56 mb-3" value="95" max="100"></progress>
+                                <h3 className='font-bold'>95%</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div className='col-span-1 bg-gradient-to-r from-[#0B0203] to-[#1A0608] text-[#F9F9F9] min-h-[200px] rounded-xl'>
+                        <div className='flex flex-col items-center justify-center p-[20px]'>
+                            <div>
+                                <img src='./icons/mongo.png' className='w-[50px]' />
+                            </div>
+
+
+                            <div className='flex items-center flex-col my-4'>
+                                <h3 className='text-base font-mono mb-2'>MongoDB</h3>
+                                <progress className="progress progress-primary w-56 mb-3" value="70" max="100"></progress>
+                                <h3 className='font-bold'>70%</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div className='col-span-1 bg-gradient-to-r from-[#0B0203] to-[#1A0608] text-[#F9F9F9] min-h-[200px] rounded-xl'>
+                        <div className='flex flex-col items-center justify-center p-[20px]'>
+                            <div>
+                                <img src='./icons/github.png' className='w-[50px]' />
+                            </div>
+
+
+                            <div className='flex items-center flex-col my-4'>
+                                <h3 className='text-base font-mono mb-2'>GitHub</h3>
+                                <progress className="progress progress-primary w-56 mb-3" value="79" max="100"></progress>
+                                <h3 className='font-bold'>79%</h3>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </div>   
+            
+            <div className='pt-[50px]'>
+                <h2 className='text-center md:text-left text-5xl font-bold text-[#F5F5F5]'>Portifólio</h2>
+
+                <div className='w-full my-[50px]'>
+                    <div className='grid px-4 md:px-0 grid-cols-1 md:grid-cols-3 grid-flow-row md:grid-rows-2 gap-2 rounded-xl'>
+                        <div className='p-5 col-span-1 border-2 border-[#721011] min-h-[500px] rounded-xl bg-gradient-to-t from-[#0B0203] to-[#1A0608] text-[#F9F9F9]'>
+                            <div className='flex flex-col gap-2'>
+                                <div className='relative w-full h-[280px] rounded-xl overflow-hidden'>
+                                <img 
+                                    src='./img/mae.png' 
+                                    alt='mae_protegida' 
+                                    className='w-full h-[280px] object-cover rounded-xl' 
+                                />
+
+                                <div className='absolute inset-0 bg-gradient-to-t from-[#000001]/80 to-transparent opacity-90 rounded-xl'></div>                            
+                                </div> 
+
+                                <div>
+                                <h3 className='text-3xl font-bold leading-normal'>Mãe Protegida</h3>
+                                <h3 className='text-base font-mono my-4'>Sistema</h3>
+                                </div>
+
+                                <div>
+                                <button className="btn bg-gradient-to-r from-[#1A0608] to-[#2A0C0E] border-0 text-[#F5F5F5] hover:from-[#721011] hover:to-[#721011] w-full transition-all">
+                                    Ver detalhes
+                                </button>
+                                </div>
+
+                            </div>
+                            </div>
+
+                            <div className='p-5 col-span-1 border-2 border-[#721011] min-h-[500px] rounded-xl bg-gradient-to-t from-[#0B0203] to-[#1A0608] text-[#F9F9F9]'>
+                            <div className='flex flex-col gap-2'>
+                                <div className='relative w-full h-[280px] rounded-xl overflow-hidden'>
+                                <img 
+                                    src='./img/nexus.png' 
+                                    alt='nexus_piaget' 
+                                    className='w-full h-[280px] object-cover rounded-xl' 
+                                />
+
+                                <div className='absolute inset-0 bg-gradient-to-t from-[#000001]/80 to-transparent opacity-90 rounded-xl'></div>                            
+                                </div> 
+
+                                <div>
+                                <h3 className='text-3xl font-bold leading-normal'>Mexus Piegat</h3>
+                                <h3 className='text-base font-mono my-4'>Sistema</h3>
+                                </div>
+
+                                <div>
+                                <button className="btn bg-gradient-to-r from-[#1A0608] to-[#2A0C0E] border-0 text-[#F5F5F5] hover:from-[#721011] hover:to-[#721011] w-full transition-all">
+                                    Ver detalhes
+                                </button>
+                                </div>
+
+                            </div>
+                            </div>
+
+                            <div className='p-5 col-span-1 border-2 border-[#721011] min-h-[500px] rounded-xl bg-gradient-to-t from-[#0B0203] to-[#1A0608] text-[#F9F9F9]'>
+                            <div className='flex flex-col gap-2'>
+                                <div className='relative w-full h-[280px] rounded-xl overflow-hidden'>
+                                <img 
+                                    src='./img/emprego.png' 
+                                    alt='nexus_piaget' 
+                                    className='w-full h-[280px] object-cover rounded-xl' 
+                                />
+
+                                <div className='absolute inset-0 bg-gradient-to-t from-[#000001]/80 to-transparent opacity-90 rounded-xl'></div>                            
+                                </div> 
+
+                                <div>
+                                <h3 className='text-3xl font-bold leading-normal'>Emprego MZN</h3>
+                                <h3 className='text-base font-mono my-4'>Site</h3>
+                                </div>
+
+                                <div>
+                                <button className="btn bg-gradient-to-r from-[#1A0608] to-[#2A0C0E] border-0 text-[#F5F5F5] hover:from-[#721011] hover:to-[#721011] w-full transition-all">
+                                    Ver detalhes
+                                </button>
+                                </div>
+
+                            </div>
+                            </div>
+
+                            <div className='p-5 col-span-1 border-2 border-[#721011] min-h-[500px] rounded-xl bg-gradient-to-t from-[#0B0203] to-[#1A0608] text-[#F9F9F9]'>
+                            <div className='flex flex-col gap-2'>
+                                <div className='relative w-full h-[280px] rounded-xl overflow-hidden'>
+                                <img 
+                                    src='./img/nexus.png' 
+                                    alt='nexus_piaget' 
+                                    className='w-full h-[280px] object-cover rounded-xl' 
+                                />
+
+                                <div className='absolute inset-0 bg-gradient-to-t from-[#000001]/80 to-transparent opacity-90 rounded-xl'></div>                            
+                                </div> 
+
+                                <div>
+                                <h3 className='text-3xl font-bold leading-normal'>Mexus Piegat</h3>
+                                <h3 className='text-base font-mono my-4'>Sistema</h3>
+                                </div>
+
+                                <div>
+                                <button className="btn bg-gradient-to-r from-[#1A0608] to-[#2A0C0E] border-0 text-[#F5F5F5] hover:from-[#721011] hover:to-[#721011] w-full transition-all">
+                                    Ver detalhes
+                                </button>
+                                </div>
+
+                            </div>
+                            </div>
+
+
+                        
+                    </div>
+                </div>
+                
             </div>
+            
+             
          </div>
-       </div>
-    </div>
+        <div>
+        </div>
+    </main>
   )
 }

@@ -1,57 +1,38 @@
 
-import {Link} from 'react-router-dom';
-import { Facebook, Github, Instagram, Mail, MenuIcon} from 'lucide-react';
+import {Link, NavLink} from 'react-router-dom';
+import { ClosedCaption, Facebook, Github, Instagram, Mail, Menu, MenuIcon, MenuSquare} from 'lucide-react';
 
 
 export const Navbar = () => {
   return (
-    <header className='fixed z-10 w-full bg-main-color p-10 h-[90px] text-white flex items-center justify-between'>
-        <div className='text-3xl font-bold'>
-            <h2>awTech</h2>
-        </div>
-        
-        <div className='absolute cursor-pointer  right-[12px] md:hidden'>
-          <MenuIcon />
-        </div>
+    <header className='flex items-center px-[4%] justify-between h-[80px] bg-gradient-to-r from-[#0B0203] to-[#1A0608] text-[#F9F9F9]'>
+      <div className='text-2xl font-bold'>
+         <h1>awTech</h1>
+      </div>
 
-        <div className='hidden md:flex md:p-20 divide-x-4'>
-            <ul className='flex gap-2 text-xl font-semibold tracking-wider'>
-                <li>
-                    <a href="/" className='md:hover:text-main-color'>Home</a>
-                </li>
+      <div className='md:hidden'>
+       <div className='flex items-center justify-center w-[50px] h-[50px]  bg-secundary-color text-xl cursor-pointer'>
+         <Menu />
+       </div>
+      </div>
 
-                <li>
-                    <a href="/sobre" className='md:hover:text-black-main'>Sobre</a>
-                </li>
+      <ul className='hidden md:flex gap-3 text-xl'>
+        <li>
+          <a href=''>Home</a>
+        </li>
 
-                <li>
-                    <a href="/contacto" className='md:hover:text-black-main'>Serviços</a>
-                </li>
-            </ul>
-            <div className='list-none ml-2'>
-                <li className='ml-2 text-xl font-bold'>
-                    <a href="/blog" className='md:hover:text-black-main'>Contacto</a>
-                </li>
-            </div>
-        </div>
+        <li>
+          <a href=''>Serviços</a>
+        </li>
 
-        <div className='hidden md:flex md:gap-3'>
-           <div className='w-10 h-10 bg-white rounded-full flex items-center justify-center text-main-color font-bold cursor-pointer hover:bg-black-main hover:text-white'>
-             <Facebook />
-           </div>
+        <li>
+          <a href=''>Portifolio</a>
+        </li>
 
-           <div className='w-10 h-10 bg-white rounded-full flex items-center justify-center text-main-color font-bold cursor-pointer hover:bg-black-main hover:text-white'>
-            <Instagram />
-           </div>
-
-           <div className='w-10 h-10 bg-white rounded-full flex items-center justify-center text-black font-bold cursor-pointer hover:bg-black-main hover:text-white'>
-            <Github />
-          </div>
-          <div className='w-10 h-10 bg-white rounded-full flex items-center justify-center text-main-color font-bold cursor-pointer hover:bg-black-main hover:text-white'>
-            <Mail />
-          </div>
-        </div>
-        
+        <li>
+          <a href=''>Sobre</a>
+        </li>
+      </ul>
     </header>
   )
 }
