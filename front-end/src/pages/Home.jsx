@@ -1,4 +1,4 @@
-import { CodeIcon, Computer, Megaphone, PaintBucket, PaintRoller, Settings, User } from 'lucide-react';
+import { CodeIcon, Computer, Facebook, Github, Linkedin, Locate, Mail, Megaphone, PaintBucket, PaintRoller, Settings, User } from 'lucide-react';
 
 //fontAwesome
 import { ShieldCheck } from 'lucide-react';
@@ -7,6 +7,7 @@ import React from 'react'
 
 export const Home = () => {
   return (
+    <>
     <main className='bg-gradient-to-r from-[#1A0608] to-[#2A0C0E] py-[80px]'>
         <div className='container max-w-[1300px] w-full  mx-auto'>
             <div className='grid grid-cols-1 relative -top-[140px] md:-top-0 md:grid-cols-5 gap-2'>
@@ -368,13 +369,100 @@ export const Home = () => {
                         
                     </div>
                 </div>
-                
             </div>
             
-             
+            <div className='pt-[50px]'>
+                <h2 className='text-[#F5F5F5] text-4xl text-center md:text-left font-bold'>Sobre a awTech</h2>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-5 border-b border-gray-400'>
+                 <div className='col-span-1 mt-[20px] text-[#F5F5F5] text-center px-3 md:text-left md:px-0'>
+                    <p className='text-base leading-[30px] mb-8'>A awTech nasceu com o propósito de transformar ideias em experiencias digitais unicas.
+                        Nosso foco esta em conectar <b>tecnologia, design</b> e proposito para 
+                        criar soluções que geram impacto real.
+                    </p>
+
+                    <p className='text-base leading-[30px] mb-8'>
+                        Criada por <b>Alphonse Mwaka Lukombo,</b> a awTech atua no desenvolvimento de sistemas,
+                        websites, e plataformas modernas, sempre com a atenção ao desempenho e a experiencia do usuário.
+                    </p>
+
+                    <p className='text-base leading-[30px] mb-8'>
+                        Acreditamos que cada projecto é uma oportunidade de construir algo significativo - unindo
+                        <b>criatividade, estratégia e inovação </b>
+                    </p>
+                 </div>
+
+                 <div className='col-sapn-1 h-[240px]'>
+                    <div className='w-[50%] h-full'>
+                        <img src='./img/footer.png' alt='sobre imagem' className='w-full h-full bg-no-repeat bg-cover' />
+                    </div>
+                 </div>
+                </div>
+
+                <div className='flex flex-col md:flex-row px-[20px] md:px-0 text-[#F5F5F5] py-4'>
+                    <div className='w-[40%]'>
+                        <h2 className='text-3xl font-bold leading-normal mb-2'>awTech</h2>
+                        <p className='w-[300px] leading-[30px]'>Transformamos ideias com soluções digitais de impacto
+                            Desenvolvimento de sites, sites e identidade visual
+                        </p>
+                    </div>
+
+                    <div className='w-[20%]'>
+                        <h2 className='text-lg font-bold'>Links Rápidos</h2>
+                        <ul className='flex flex-col gap-4'>
+                            <li>
+                                <a href='#' className='font-bold mt-5'>Services</a>
+                            </li>
+
+                            <li>
+                                <a href='#' className='font-bold'>Portifolio</a>
+                            </li>
+
+                            <li>
+                                <a href='#' className='font-bold'>Sobre</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div className='w-[20%] hidden md:block'>
+                        <h2 className='text-lg font-bold'>Contacto</h2>
+
+                        <ul className='flex flex-col gap-4 '>
+                            <li className='flex gap-2'>
+                                <Locate />
+                                <a href=''>
+                                 Inhambane, Moçambique
+                                </a>
+                            </li>
+
+                            <li className='flex gap-2'>
+                                <Mail />
+                                <a href=''>
+                                 awTech@gmail.com
+                                </a>
+                            </li>
+
+                            <li className='flex gap-4'>
+                             <a href=''><Github /></a>
+                             <a href=''><Linkedin /></a>
+                             <a href=''><Facebook /></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            
          </div>
         <div>
         </div>
+    
+     
     </main>
+    
+    <footer className='flex items-center justify-center bg-gradient-to-r from-[#0B0203] to-[#1A0608] text-[#F9F9F9] p-3'>
+        <p className='text-base tracking-tight'>&copy; 2025 awTech. Todos os direitos reservados</p>     
+    </footer>
+    </>
   )
 }
