@@ -4,15 +4,34 @@ import { CodeIcon, Computer, Facebook, Github, Linkedin, Locate, Mail, Megaphone
 import { ShieldCheck } from 'lucide-react';
 
 import React from 'react'
+import { ReactTyped } from 'react-typed';
+
 
 export const Home = () => {
   return (
     <>
     <main className='bg-gradient-to-r from-[#1A0608] to-[#2A0C0E] py-[80px]'>
-        <div className='container max-w-[1300px] w-full  mx-auto'>
-            <div className='grid grid-cols-1 relative -top-[140px] md:-top-0 md:grid-cols-5 gap-2'>
+        <div className='container max-w-[1300px] w-full  mx-auto px-4 md:px-0'>
+            <div className='grid grid-cols-1 relative ml-4 md:px-0 -top-[200px] md:-top-0 md:grid-cols-5 gap-2'>
               <div className='col-span-1 md:col-span-3 w-full md:py-[100px]   text-[#F5F5F5] order-2 md:order-1 text-center md:text-left'>
-                <h1 className='text-2xl leading-normal mb-4'>Olá eu sou <b className='text-[#721011]'>Alphonse Mwaka Lukombo</b></h1>
+                
+                <h1 className='text-2xl md:text-3xl font-bold leading-normal mb-4 text-white'>
+  Olá, eu sou{' '}
+  <ReactTyped
+    strings={[
+      'Alphonse Mwaka Lukombo',
+      'Programador',
+      'Gestor de Marketing',
+      'Técnico de Redes'
+    ]}
+    typeSpeed={70}
+    backSpeed={50}
+    loop
+    backDelay={1500}
+    className='text-[#721011] font-bold text-5xl'
+  />
+</h1>
+
                 <h2 className='text-lg  md:text-5xl leading-normal md:leading-[60px] md:mb-4 font-bold'>Tranformamos ideias em experiências digitais únicas</h2>
                 <p className=' text-base md:text-lg leading-[50px] md:mb-4 font-mono'>A awTech desenvolve sites, sistemas e marcas que conectam tecnologia e proposito.</p>
 
@@ -23,10 +42,8 @@ export const Home = () => {
               </div>
 
               <div className='md:py-0 col-span-1  md:col-span-2  order-1 md:order-2 relative'>
-                <div className=''>
-                <div className=' h-[400px]'>
-                    <img src='/img/banner_03.PNG' alt='banner_perfil' className='bg-contain md:bg-center bg-no-repeat w-[250px] h-[250px]  border-2 rounded-full mx-auto  md:mx-0 border-blue-400 md:border-0 md:w-auto md:h-auto md:absolute relative top-[120px] md:-top-[120px]' />
-                </div>
+                <div className='relative -top-[100px] md:-top-7'>
+                    <img src='/img/IMG_4345.PNG' alt='banner_perfil' className='bg-contain md:bg-center bg-no-repeat md:w-[250px] md:h-[250px]  rounded-full mx-auto  md:mx-0  md:border-0 md:w-auto md:h-auto md:absolute relative top-[120px] md:-top-[120px]' />
               </div>
               </div>
 
