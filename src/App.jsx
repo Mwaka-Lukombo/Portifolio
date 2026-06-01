@@ -161,7 +161,7 @@ export const App = () => {
 
      {/* cards */}
      <div className='grid md:grid-cols-6 gap-3'>
-      <div className='col-span-4 min-h-[500px] border border-[#ccc] rounded-xl relative'>
+      <div className='md:col-span-4 min-h-[500px] border border-[#ccc] rounded-xl relative'>
         {/* overlay */}
         <div className='w-full h-full absolute top-0 left-0 bg-black/20'></div>
         <div className='w-full h-[70%] rounded-tl-xl rounded-tr-xl relative cursor-pointer'>
@@ -216,7 +216,7 @@ export const App = () => {
 
       </div>
 
-      <div className='col-span-2 min-h-[500px] border rounded-xl relative'>
+      <div className='md:col-span-2 min-h-[500px] border rounded-xl relative'>
         {/* overlay */}
         <div className='w-full h-full absolute top-0 left-0 bg-black/20 rounded-xl'></div>
         <div className='w-full h-[70%] rounded-tl-xl rounded-tr-xl relative cursor-pointer'>
@@ -270,7 +270,7 @@ export const App = () => {
 
      {/* Terceiro card - col-span-6 */}
      <div className='grid md:grid-cols-6 gap-3 mt-3'>
-      <div className='col-span-6 h-[500px] border border-[#ccc] rounded-xl relative'>
+      <div className='md:col-span-6 h-[500px] border border-[#ccc] rounded-xl relative'>
        
         <div className='w-full h-[70%] rounded-tl-xl rounded-tr-xl relative cursor-pointer'>
            {/* overlay */}
