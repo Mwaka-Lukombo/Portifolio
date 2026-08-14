@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Eye } from 'lucide-react'
 import React, { useContext, useState } from 'react'
 import { Link, useParams } from 'react-router';
 import { ProjectContext } from '../hooks/ProjectsContext';
@@ -142,6 +142,7 @@ const handleNextImage = () => {
                     <p className='text-sm font-normal leading-normal text-center'>{projectSingle?.description}</p>
                 </div>
 
+                
                 {/* Butttons */}
                 <div className='w-[200px] h-[50px]
                 flex items-center justify-center px-3 gap-2 mt-2
@@ -160,6 +161,11 @@ const handleNextImage = () => {
                     <ArrowRight size={19}/>
                 </button>
                 </div>
+
+                
+                <Link to={projectSingle?.link} target='_blank' className='flex items-center justify-center w-[30px] h-[30px] rounded-full cursor-pointer'>
+                    <Eye className='text-white'/>
+                </Link>
                 
             </div>
             

@@ -62,6 +62,7 @@ export const ProjectProvider = (({children}) => {
      name:"Mãe Protegida",
      description:"Sistema completo para acompanhamento pré-natal",
      images:maeImages,
+     link:"https://maeprotegida.onrender.com",
      tecnologias:[
       {
         name:"React",
@@ -166,6 +167,7 @@ export const ProjectProvider = (({children}) => {
         name:"Mobile Sale",
         description:"E-commerce para venda de celulares",
         images:otherProjectImages,
+        link:"https://mobile-sale.onrender.com",
         tecnologias:[
         {
             name:"React",
@@ -210,6 +212,7 @@ export const ProjectProvider = (({children}) => {
         name:"Pizzaria RealTime",
         description:"Pizzaria Realtime, um aplicativo que permite gerenciar uma pizzaria, pedidos entre outros em tempo real.",
         images:thirdProjectImages,
+        link:"https://pizzaria-realtime-02.onrender.com",
         tecnologias:[
         {
             name:"React",
