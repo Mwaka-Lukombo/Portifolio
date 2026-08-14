@@ -1,4 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+
+import {
+  Routes,
+  Route
+} from 'react-router';
+
+
 import { NavBar } from './components/NavBar'
 import { ArrowLeft, ArrowRight, CheckCircle2, Eye, GitCommit, LocateIcon, Mail, Phone, PhoneCall } from 'lucide-react'
 import { Link } from 'react-router'
@@ -13,59 +20,50 @@ import{
   FaGithub,
   FaWhatsapp
 } from 'react-icons/fa';
+import { ProjectSingle } from './components/ProjectSingle'
+import { ProjectContext } from './hooks/ProjectsContext';
 
 
 
 export const App = () => {
 
-  const nexusImages = ['/cards/nexus/screencapture-localhost-3000-2026-06-01-19_32_45.png'
-    ,
-    '/cards/nexus/screencapture-localhost-3000-alumin-2026-06-01-19_40_56.png',
-    '/cards/nexus/screencapture-localhost-3000-alumin-profile-69c4f697176ef0bc6f32179b-2026-06-01-19_41_21.png'
-  ]
-
-  const otherProjectImages = [
-    '/cards/Mobile/screencapture-localhost-3000-forgetPassword-2026-06-01-19_49_32.png',
-    '/cards/Mobile/screencapture-localhost-3000-login-2026-06-01-19_49_08.png',
-    '/cards/Mobile/screencapture-localhost-3000-signup-2026-06-01-19_49_20.png',
-    '/cards/Mobile/screencapture-mobile-sale-onrender-2026-06-01-19_54_28.png',
-    '/cards/Mobile/screencapture-mobile-sale-onrender-acessorios-6a0edc380c4ad9bc04ef7165-category-Capas-de-celular-2026-06-01-19_58_04.png',
-    '/cards/Mobile/screencapture-mobile-sale-onrender-acessorios-2026-06-01-19_57_54.png',
-    '/cards/Mobile/screencapture-mobile-sale-onrender-profile-2026-06-01-19_59_32.png',
-    '/cards/Mobile/screencapture-mobile-sale-onrender-smartphones-69fddffea54e23c177201a8e-category-Iphone-2026-06-01-19_57_38.png',
-    '/cards/Mobile/screencapture-mobile-sale-onrender-smartphones-2026-06-01-19_54_51.png',
-    '/cards/Mobile/screencapture-mobile-sale-onrender-smartphones-2026-06-01-19_57_19.png',
-    '/cards/Mobile/screencapture-mobile-sale-onrender-tablets-2026-06-01-19_58_14.png',
-    '/cards/Mobile/Screenshot 2026-06-01 195901.png'
-  ]
-
-  const thirdProjectImages = [
-    '/cards/Pizzaria/screencapture-pizzaria-realtime-02-onrender-2026-06-01-20_14_13.png',
-    '/cards/Pizzaria/screencapture-pizzaria-realtime-02-onrender-kitchen-2026-06-01-20_17_16.png',
-    '/cards/Pizzaria/screencapture-pizzaria-realtime-02-onrender-orders-2026-06-01-20_15_16.png',
-    '/cards/Pizzaria/screencapture-pizzaria-realtime-02-onrender-orders-2026-06-01-20_15_48.png',
-    '/cards/Pizzaria/screencapture-pizzaria-realtime-02-onrender-orders-2026-06-01-20_15_57.png',
-    '/cards/Pizzaria/screencapture-pizzaria-realtime-02-onrender-orders-2026-06-01-20_16_39.png',
-    '/cards/Pizzaria/screencapture-pizzaria-realtime-02-onrender-product-69aaafb658c1a56369be85fa-2026-06-01-20_14_42.png',
-    '/cards/Pizzaria/screencapture-pizzaria-realtime-02-onrender-product-69aaafb658c1a56369be85fa-2026-06-01-20_15_07.png'
-
-  ]
+  const {projects} = useContext(ProjectContext);
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [currentOtherImageIndex, setCurrentOtherImageIndex] = useState(0)
-  const [currentThirdImageIndex, setCurrentThirdImageIndex] = useState(0)
+  const [currentThirdImageIndex, setCurrentThirdImageIndex] = useState(0);
 
-  const handlePrevImage = () => {
-    setCurrentImageIndex((prevIndex) => 
-      prevIndex === 0 ? nexusImages.length - 1 : prevIndex - 1
-    )
-  }
+  const [imageIndexes, setImageIndexes] = useState({});
 
-  const handleNextImage = () => {
-    setCurrentImageIndex((prevIndex) => 
-      prevIndex === nexusImages.length - 1 ? 0 : prevIndex + 1
-    )
-  }
+  const handlePrevImage = (projectId, totalImages) => {
+
+    setImageIndexes(prev => ({
+
+        ...prev,
+
+        [projectId]:
+            prev[projectId] === undefined
+                ? totalImages - 1
+                : (prev[projectId] - 1 + totalImages) % totalImages
+
+    }));
+
+};
+
+  const handleNextImage = (projectId, totalImages) => {
+
+    setImageIndexes(prev => ({
+
+        ...prev,
+
+        [projectId]:
+            prev[projectId] === undefined
+                ? 1 % totalImages
+                : (prev[projectId] + 1) % totalImages
+
+    }));
+
+};
 
   const handlePrevOtherImage = () => {
     setCurrentOtherImageIndex((prevIndex) => 
@@ -91,9 +89,16 @@ export const App = () => {
     )
   }
 
+
+  
+
   return (
     <>
-    <div id='home' className='min-h-screen'>
+    
+    <Routes>
+      <Route path='/' element={
+        <>
+          <div id='home' className='min-h-screen'>
       <NavBar />
       <div className="relative h-auto w-full overflow-hidden bg-gradient-to-tr from-[#0D0D11] via-[#15171D] to-[#6366F1]">
       {/* Glow sutil */}
@@ -143,8 +148,12 @@ export const App = () => {
       </div>
 
       {/* right side */}
-      <div className='w-full h-full border border-[#ccc]'>
-
+      <div className='w-full h-[500px] relative'>
+        <img src = "/images/banner.webp" 
+         className='w-[380px] mx-auto h-full bg-cover absolute top-[-100px] left-[50%]
+         translate-x-[-50%]
+         '
+        />
       </div>
     </div>
     </div>
@@ -160,178 +169,63 @@ export const App = () => {
      </div>
 
      {/* cards */}
-     <div className='grid md:grid-cols-6 gap-3'>
-      <div className='md:col-span-4 min-h-[500px] border border-[#ccc] rounded-xl relative'>
+     <div className='grid md:grid-cols-3 gap-4'>
+
+      {Array.isArray(projects) && projects.map((item,index) => (
+        <>
+         <motion.div
+         initial={{y:100,opacity:0}}
+         whileInView={{y:0,opacity:1}}
+         transition={{duration:1,delay:index * 0.3}}
+         key={index} 
+         to={`/projectSingle/${item?.id}`} 
+         className='col-span-1 h-[350px] border border-[#ccc] rounded-xl relative'>
         {/* overlay */}
         <div className='w-full h-full absolute top-0 left-0 bg-black/20'></div>
-        <div className='w-full h-[70%] rounded-tl-xl rounded-tr-xl relative cursor-pointer'>
-          <img src={nexusImages[currentImageIndex]} 
+        <div className='w-full h-[60%] rounded-tl-xl rounded-tr-xl relative cursor-pointer'>
+          <img src={item?.images[currentImageIndex]} 
           className='w-full h-full bg-no-repeat bg-center bg-cover rounded-tl-xl rounded-tr-xl
+           
           '
           />
-          {/* Butttons */}
-          <div className='w-[200px] h-[50px] absolute bottom-0 right-0
-          flex items-center justify-end px-3 gap-1
-          '>
-            <button onClick={handlePrevImage} className='w-[30px] h-[30px] hover:bg-primary-purple bg-secundary-purple rounded-full text-white flex items-center justify-center'>
-              <ArrowLeft size={19} />
-            </button>
-            <button onClick={handleNextImage} className='w-[30px] h-[30px] hover:bg-primary-purple bg-secundary-purple rounded-full text-white flex items-center justify-center'>
-              <ArrowRight size={19} />
-            </button>
-          </div>
+          
         </div>
 
-        <div className='w-full h-[30%] p-3'>
-         <h2 className='mb-2'>Nexus Piaget</h2>
-         <p className='text-xs leading-normal'>Uma solução para estudantes, ex-estudantes da universidade Jean Piaget de Moçambique. A universidade Jean Piaget de Moçambique </p>
+        {/* Projetos */}
+        <div className='w-full h-[40%] p-3'>
+         <h2 className='mb-2'>{item?.name}</h2>
+         <p className='text-xs leading-normal'>{item?.description}</p>
 
           {/* Tecnologias */}
-         <div className='flex items-center gap-2'>
-           <div className='p-2 flex items-center justify-center gap-2'>
-            <img src="/images/react.png" className='w-[15px] h-[15px] bg-contain bg-center'/>
-            <p className='text-xs'>React</p>
+         <div className='flex items-center gap-1'>
+           {item?.tecnologias?.map((tec,index) => (
+            <div key={index} className='my-2 flex items-center justify-center gap-2'>
+             <img src={tec?.image} className='w-[15px] h-[15px] bg-contain bg-center'/>
+            <p className='text-xs'>{tec?.name}</p>
            </div>
+           ))}
 
-           <div className='p-2 flex items-center justify-center gap-2'>
-            <img src="/images/node.png" className='w-[15px] h-[15px] bg-contain bg-center'/>
-            <p className='text-xs'>Node</p>
-           </div>
-
-           <div className='p-2 flex items-center justify-center gap-2'>
-            <img src="/images/tailwindcss.svg" className='w-[15px] h-[15px] bg-contain bg-center'/>
-            <p className='text-xs'>Tailwindcss</p>
-           </div>
+           
          </div>
 
-         <div className='my-2 relative z-10 hover:text-secundary-purple'>
-          <Link className='text-xs flex items-center gap-2'>
+         <div className='my-1 relative z-10 hover:text-secundary-purple'>
+          <Link to={`/projectSingle/${item?.id}`} className='text-xs flex items-center gap-2'>
             <Eye size={19}/>
-            <span>Demo</span>
+            <span className='font-semibold'>Ver mais</span>
           </Link>
          </div>
 
          
         </div>
 
-      </div>
+         </motion.div>
+        </>
+      ))}
 
-      <div className='md:col-span-2 min-h-[500px] border rounded-xl relative'>
-        {/* overlay */}
-        <div className='w-full h-full absolute top-0 left-0 bg-black/20 rounded-xl'></div>
-        <div className='w-full h-[70%] rounded-tl-xl rounded-tr-xl relative cursor-pointer'>
-          <img src={otherProjectImages[currentOtherImageIndex]} 
-          className='w-full h-full bg-no-repeat bg-center bg-cover rounded-tl-xl rounded-tr-xl'
-          />
-          {/* Butttons */}
-          <div className='w-[200px] h-[50px] absolute bottom-0 right-0
-          flex items-center justify-end px-3 gap-1
-          '>
-            <button onClick={handlePrevOtherImage} className='w-[30px] h-[30px] hover:bg-primary-purple bg-secundary-purple rounded-full text-white flex items-center justify-center'>
-              <ArrowLeft size={19} />
-            </button>
-            <button onClick={handleNextOtherImage} className='w-[30px] h-[30px] hover:bg-primary-purple bg-secundary-purple rounded-full text-white flex items-center justify-center'>
-              <ArrowRight size={19} />
-            </button>
-          </div>
-        </div>
 
-        <div className='w-full h-[30%] p-3'>
-         <h2 className='mb-2'>Mobile Sale</h2>
-         <p className='text-xs leading-normal'>E-commerce para venda de celulares</p>
-
-          {/* Tecnologias */}
-         <div className='flex items-center gap-2'>
-           <div className='p-2 flex items-center justify-center gap-2'>
-            <img src="/images/react.png" className='w-[15px] h-[15px] bg-contain bg-center'/>
-            <p className='text-xs'>React</p>
-           </div>
-
-           <div className='p-2 flex items-center justify-center gap-2'>
-            <img src="/images/node.png" className='w-[15px] h-[15px] bg-contain bg-center'/>
-            <p className='text-xs'>Node</p>
-           </div>
-
-           <div className='p-2 flex items-center justify-center gap-2'>
-            <img src="/images/tailwindcss.svg" className='w-[15px] h-[15px] bg-contain bg-center'/>
-            <p className='text-xs'>Tailwindcss</p>
-           </div>
-         </div>
-
-         <div className='my-2 relative z-10 hover:text-secundary-purple'>
-          <Link to={'https://mobile-sale.onrender.com/'} target='_blank' className='text-xs flex items-center gap-2'>
-            <Eye size={19}/>
-            <span>Demo</span>
-          </Link>
-         </div>
-        </div>
-      </div>
      </div>
 
-     {/* Terceiro card - col-span-6 */}
-     <div className='grid md:grid-cols-6 gap-3 mt-3'>
-      <div className='md:col-span-6 h-[500px] border border-[#ccc] rounded-xl relative'>
-       
-        <div className='w-full h-[70%] rounded-tl-xl rounded-tr-xl relative cursor-pointer'>
-           {/* overlay */}
-        <div className='w-full h-full absolute top-0 left-0 bg-black/20 rounded-xl'></div>
-          <img src={thirdProjectImages[currentThirdImageIndex]} 
-          className='w-full h-full bg-no-repeat bg-center bg-cover rounded-tl-xl rounded-tr-xl'
-          />
-          {/* Butttons */}
-          <div className='w-[200px] h-[50px] absolute bottom-0 right-0
-          flex items-center justify-end px-3 gap-1
-          '>
-            <button onClick={handlePrevThirdImage} className='w-[30px] h-[30px] hover:bg-primary-purple bg-secundary-purple rounded-full text-white flex items-center justify-center'>
-              <ArrowLeft size={19} />
-            </button>
-            <button onClick={handleNextThirdImage} className='w-[30px] h-[30px] hover:bg-primary-purple bg-secundary-purple rounded-full text-white flex items-center justify-center'>
-              <ArrowRight size={19} />
-            </button>
-          </div>
-        </div>
-
-        <div className='w-full h-[30%] p-3'>
-         <h2 className='mb-2'>Pizzaria</h2>
-         <p className='text-xs leading-normal'>Pizzaria Realtime, uma aplicação que te permite gerenciar uma pizzaria, pedidos entre outros em tempo real.</p>
-
-          {/* Tecnologias */}
-         <div className='flex items-center gap-2'>
-           <div className='p-2 flex items-center justify-center gap-2'>
-            <img src="/images/react.png" className='w-[15px] h-[15px] bg-contain bg-center'/>
-            <p className='text-xs'>React</p>
-           </div>
-
-           <div className='p-2 flex items-center justify-center gap-2'>
-            <img src="/images/node.png" className='w-[15px] h-[15px] bg-contain bg-center'/>
-            <p className='text-xs'>Node</p>
-           </div>
-
-           <div className='p-2 flex items-center justify-center gap-2'>
-            <img src="/images/tailwindcss.svg" className='w-[15px] h-[15px] bg-contain bg-center'/>
-            <p className='text-xs'>Tailwindcss</p>
-           </div>
-
-           <div className='p-2 flex items-center justify-center gap-2'>
-            <img src="/images/mongo.png" className='w-[15px] h-[15px] bg-contain bg-center'/>
-            <p className='text-xs'>MongoDB</p>
-           </div>
-
-           <div className='p-2 flex items-center justify-center gap-2'>
-            <img src="/images/socket-io-svgrepo-com.svg" className='w-[15px] h-[15px] bg-contain bg-center'/>
-            <p className='text-xs'>Socket.io</p>
-           </div>
-         </div>
-
-         <div className='my-2 relative z-10 hover:text-secundary-purple'>
-          <Link to={'https://pizzaria-realtime-02.onrender.com/'} target='_blank' className='text-xs flex items-center gap-2'>
-            <Eye size={19}/>
-            <span>Demo</span>
-          </Link>
-         </div>
-        </div>
-      </div>
-     </div>
+     
     </div>
 
     <div className='w-full h-[850px] bg-gray-black py-7 px-[7%] text-gray-400'>
@@ -443,6 +337,13 @@ export const App = () => {
     <div className='w-full p-4 flex items-center justify-center bg-black'>
       <p className='text-secundary-purple text-xs'>&copy; Todos os direitos reservados - <b>awTech</b></p>
     </div>
+
+        </>
+      } />
+      <Route path="/projectSingle/:id" element={
+        <ProjectSingle />
+      } />
+    </Routes>
     </>
   )
 }

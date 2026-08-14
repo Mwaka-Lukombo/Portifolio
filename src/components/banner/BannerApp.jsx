@@ -131,7 +131,7 @@ export const Banner = () => {
                 Ver projetos
               </motion.button>
 
-              <motion.button 
+              {/* <motion.button 
                 className="md:w-[150px] h-[45px] border border-gray-600 hover:border-purple-500 transition rounded-lg text-gray-300 hover:text-white text-sm "
                 whileHover={{ scale: 1.05, borderColor: "#a855f7" }}
                 whileTap={{ scale: 0.95 }}
@@ -140,13 +140,13 @@ export const Banner = () => {
                 transition={{ delay: 1.0 }}
               >
                 Baixar CV
-              </motion.button>
+              </motion.button> */}
             </div>
           </motion.div>  
         </motion.div>
 
         {/* LADO DIREITO - IMAGEM E ELEMENTOS DECORATIVOS */}
-        <div className='col-span-1 min-h-[450px] md:min-h-[600px] relative mt-4 md:mt-8'>
+        <div className='col-span-1 min-h-[450px] md:min-h-[600px] relative mt-4'>
           
           {/* Símbolos de programação flutuantes - APENAS DESKTOP */}
           <motion.div 
@@ -465,7 +465,7 @@ export const Banner = () => {
           
           {/* SUA IMAGEM - VISÍVEL EM TODOS OS DISPOSITIVOS */}
           {/* SUA IMAGEM COM EFEITOS ESPECIAIS */}
-<motion.img 
+{/* <motion.img 
   src="/images/banner.webp"  
   className='w-full h-full object-contain absolute top-[-30px] md:top-[-100px] left-0 right-0 mx-auto z-20'
   initial={{ opacity: 0, scale: 0.9, y: 50 }}
@@ -483,7 +483,7 @@ export const Banner = () => {
     filter: 'drop-shadow(0 0 60px rgba(168,85,247,0.5))',
     transition: { duration: 0.3 }
   }}
-/>
+/> */}
 
 {/* Efeito de brilho atrás da imagem */}
 <motion.div 
