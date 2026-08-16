@@ -62,7 +62,7 @@ export const ProjectProvider = (({children}) => {
      name:"Mãe Protegida",
      description:"Sistema completo para acompanhamento pré-natal",
      images:maeImages,
-     link:"https://maeprotegida.onrender.com",
+     link:"",
      tecnologias:[
       {
         name:"React",
